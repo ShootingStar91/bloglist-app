@@ -1,0 +1,26 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches: [master]
+    types: [opened, synchronize]
+
+jobs:
+  run_frontend_tests:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '16.x'
+      - name: npm ci
+        run: npm ci  
+      - name: lint
+        zrun: npm run eslint
+      - name: build
+        run: npm run build
+      - name: test
+        run: CI=true npm test
