@@ -19,7 +19,7 @@ jobs:
       - name: npm ci
         run: npm ci  
       - name: lint
-        zrun: npm run eslint
+        run: npm run eslint
       - name: build
         run: npm run build
       - name: test
