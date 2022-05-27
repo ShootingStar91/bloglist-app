@@ -6,11 +6,14 @@ on:
       - master
   pull_request:
     branches: [master]
-    types: [opened, synchronize]
+    types: [opened, synchronize] 
 
 jobs:
   run_frontend_tests:
     runs-on: ubuntu-18.04
+    defaults:
+      run:
+        working-directory: ./frontend
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
