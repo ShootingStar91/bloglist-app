@@ -11,9 +11,6 @@ on:
 jobs:
   run_frontend_tests:
     runs-on: ubuntu-18.04
-    defaults:
-      run:
-        working-directory: ./frontend
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
@@ -21,17 +18,18 @@ jobs:
           node-version: '16.x'
       - name: Compose mongo-docker
         run: docker compose -f docker-compose.dev.yml up -d
+      
       - name: npm ci
-        run: npm ci  
+        run: cd frontend && npm ci  
       - name: lint
-        run: npm run eslint
+        run: cd frontend && npm run eslint
       - name: build
-        run: npm run build
+        run: cd frontend && npm run build
       - name: test
-        run: CI=true npm test
+        run: cd frontend && CI=true npm test
       - name: backend testmode
-        run: cd ../backend && \
+        run: cd backend && \
              npm ci && \
              SECRET=salaisuus PORT=3001 MONGODB_URI=http://the_username:the_password@localhost:3456/the_database npm start
       - name: frontend start
-        run: cd ../frontend && npm test:e2e
+        run: cd frontend && npm test:e2e
