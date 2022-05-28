@@ -19,6 +19,8 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: '16.x'
+      - name: Compose mongo-docker
+        run: docker compose -f docker-compose.dev.yml up -d
       - name: npm ci
         run: npm ci  
       - name: lint
@@ -27,3 +29,10 @@ jobs:
         run: npm run build
       - name: test
         run: CI=true npm test
+      - name: backend testmode
+        run: cd ../backend
+        run: npm ci
+        run: SECRET=salaisuus PORT=3001 MONGODB_URI=http://the_username:the_password@localhost:3456/the_database npm start
+      - name: frontend start
+        run: cd ../frontend
+        run: npm test:e2e

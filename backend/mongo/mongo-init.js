@@ -5,7 +5,11 @@ db.createUser({
     {
       role: 'dbOwner',
       db: 'the_database',
-    },
+    }, 
+    {
+      role: 'dbOwner',
+      db: 'the_test_database'
+    }
   ],
 });
 
