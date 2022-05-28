@@ -30,9 +30,8 @@ jobs:
       - name: test
         run: CI=true npm test
       - name: backend testmode
-        run: cd ../backend
-        run: npm ci
-        run: SECRET=salaisuus PORT=3001 MONGODB_URI=http://the_username:the_password@localhost:3456/the_database npm start
+        run: cd ../backend && \
+             npm ci && \
+             SECRET=salaisuus PORT=3001 MONGODB_URI=http://the_username:the_password@localhost:3456/the_database npm start
       - name: frontend start
-        run: cd ../frontend
-        run: npm test:e2e
+        run: cd ../frontend && npm test:e2e
