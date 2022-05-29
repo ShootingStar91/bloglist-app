@@ -31,7 +31,7 @@ jobs:
       - name: backend testmode
         env:
           MONGODB_URI: ${{ secrets.MONGODB_URI }}
-          SECRET: ${{ secretsSECRET }}
+          SECRET: ${{ secrets.SECRET }}
           PORT: 3001
         run: cd backend && npm ci && npm start &
       - name: frontend start
