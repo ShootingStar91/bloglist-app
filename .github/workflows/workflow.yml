@@ -35,4 +35,4 @@ jobs:
           PORT: 3001
         run: cd backend && npm ci && npm start &
       - name: frontend start
-        run: cd frontend && npm test:e2e
+        run: cd frontend && npm run test:e2e
