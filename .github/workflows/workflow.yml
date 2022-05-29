@@ -9,7 +9,8 @@ on:
     types: [opened, synchronize] 
 
 jobs:
-  run_frontend_tests:
+  run_all_tests:
+    timeout-minutes: 10
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
@@ -30,8 +31,8 @@ jobs:
       - name: backend testmode
         env:
           MONGODB_URI: ${{ secrets.MONGODB_URI }}
-          SECRET: salaisuus
+          SECRET: ${{ secretsSECRET }}
           PORT: 3001
-        run: cd backend && npm ci && npm start
+        run: cd backend && npm ci && npm start &
       - name: frontend start
         run: cd frontend && npm test:e2e
