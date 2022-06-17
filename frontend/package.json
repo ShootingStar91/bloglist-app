@@ -1,7 +1,10 @@
 {
   "name": "bloglist-frontend",
   "version": "0.1.0",
-  "private": true,
+  "private": true,  
+  "engines": {
+    "node": "16.x"
+  },
   "dependencies": {
     "@testing-library/user-event": "^12.6.3",
     "axios": "^0.21.1",
