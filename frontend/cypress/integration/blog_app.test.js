@@ -15,7 +15,7 @@ describe('Blog app', function() {
     }
     cy.request('POST', 'http://localhost:3001/api/users', user1)
     cy.request('POST', 'http://localhost:3001/api/users', user2)
-    cy.visit('http://localhost:3000')
+    cy.visit('http://localhost:3001')
   })
 
   it('front page contains login form', function() {

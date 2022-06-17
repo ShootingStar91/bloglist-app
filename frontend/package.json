@@ -1,7 +1,7 @@
 {
   "name": "bloglist-frontend",
   "version": "0.1.0",
-  "private": true,  
+  "private": true,
   "engines": {
     "node": "16.x"
   },
@@ -22,7 +22,7 @@
     "eslint": "eslint .",
     "lintfix": "eslint . --fix",
     "cypress:open": "cypress open --config watchForFileChanges=false",
-    "test:e2e": "cypress run --port 3001"
+    "test:e2e": "cypress run --port 3002"
   },
   "eslintConfig": {
     "extends": [
