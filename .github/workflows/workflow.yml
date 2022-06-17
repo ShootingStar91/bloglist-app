@@ -16,10 +16,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
         with:
-          node-version: '16.x'
-      - name: Compose mongo-docker
-        run: docker compose -f docker-compose.dev.yml up -d
-      
+          node-version: '16.x'      
       - name: npm ci
         run: cd frontend && npm ci  
       - name: lint
@@ -33,7 +30,7 @@ jobs:
           MONGODB_URI: ${{ secrets.MONGODB_URI }}
           SECRET: ${{ secrets.SECRET }}
           PORT: 3001
-        run: cd backend && npm ci && npm start &
+        run: npm ci && npm start &
       - name: e2e test
         uses: cypress-io/github-action@v2
         with:

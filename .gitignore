@@ -1,5 +1,5 @@
 frontend/node_modules
-backend/node_modules
-backend/mongo_data
-backend/runbackend
+node_modules
+mongo_data
+runbackend
 memo.md
