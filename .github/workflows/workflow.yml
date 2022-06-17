@@ -18,7 +18,7 @@ jobs:
         with:
           node-version: '16.x'      
       - name: npm ci
-        run: cd frontend && npm ci  
+        run: cd frontend && SKIP_PREFLIGHT_CHECK=true npm ci  
       - name: lint
         run: cd frontend && npm run eslint
       - name: build
@@ -30,7 +30,7 @@ jobs:
           MONGODB_URI: ${{ secrets.MONGODB_URI }}
           SECRET: ${{ secrets.SECRET }}
           PORT: 3001
-        run: npm ci && npm start &
+        run: SKIP_PREFLIGHT_CHECK=true npm ci && npm start &
       - name: e2e test
         uses: cypress-io/github-action@v2
         with:
