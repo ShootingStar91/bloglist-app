@@ -1,0 +1,41 @@
+;FFMETADATA1
+[CHAPTER]
+TIMEBASE=1/1000
+START=2159
+END=2627
+title=Blog app front page contains login form
+[CHAPTER]
+TIMEBASE=1/1000
+START=2016
+END=3096
+title=Blog app Login fails with incorrect login input
+[CHAPTER]
+TIMEBASE=1/1000
+START=3138
+END=4177
+title=Blog app Login succeeds with correct login input
+[CHAPTER]
+TIMEBASE=1/1000
+START=3224
+END=5217
+title=Blog app When user is logged in a blog can be posted
+[CHAPTER]
+TIMEBASE=1/1000
+START=6319
+END=7211
+title=Blog app When user is logged in a blog can be liked
+[CHAPTER]
+TIMEBASE=1/1000
+START=0
+END=null
+title=Blog app When user is logged in a blog can be removed
+[CHAPTER]
+TIMEBASE=1/1000
+START=0
+END=null
+title=Blog app When user is logged in a blog cannot be removed by a wrong user
+[CHAPTER]
+TIMEBASE=1/1000
+START=0
+END=null
+title=Blog app When user is logged in blogs are sorted correctly by amount of likes
