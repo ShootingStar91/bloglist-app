@@ -5,3 +5,5 @@ This repository is for the fullstackopen course part 11, last exercise of buildi
 Mongo atlas serves as a database.
 
 Project deployed to heroku: https://bloglistcicd.herokuapp.com/
+
+https://www.fullstackopen.com
