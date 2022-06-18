@@ -41,9 +41,19 @@ jobs:
           working-directory: ./frontend
           command: npm run test:e2e
           wait-on: http://localhost:3001
+      - name: action-slack
+        if:  failure()
+        uses: 8398a7/action-slack@v3
+        with:
+          status: ${{ job.status }}
+          fields: repo,message,took,commit
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+
   deploy:
     if: ${{ github.event_name == 'push' && !contains(join(toJson(github.event.commits.*.message)), '#skip') }} 
     runs-on: ubuntu-18.04
+    needs: [run_all_tests]
     steps:
       - uses: actions/checkout@v2
       - uses: akhileshns/heroku-deploy@v3.12.12
@@ -55,8 +65,12 @@ jobs:
           checkstring: "ok"
           delay: 5
           rollbackonhealthcheckfailed: true
+  push_tag:
+    runs-on: ubuntu-18.04
+    needs: [deploy]
+    steps:
       - name: Bump version and push tag
-        uses: anothrNick/github-tag-action@1.33.0
+        uses: anothrNick/github-tag-action@3840ec22ac98e14d981375e3ae2d8d0392964521
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           DEFAULT_BUMP: patch
