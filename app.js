@@ -28,10 +28,10 @@ app.use(cors())
 app.use(express.static('frontend/build'))
 app.use(express.json())
 app.get('/health', (req, res) => {
-  res.send("NOTOK")
+  res.send("ok")
 })
 app.get('/version', (req, res) => {
-  res.send('2') //BROKEN VERSION
+  res.send('3')
 })
 
 app.use(middleware.tokenExtractor)
