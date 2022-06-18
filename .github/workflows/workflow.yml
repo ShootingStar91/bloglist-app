@@ -65,10 +65,6 @@ jobs:
           checkstring: "ok"
           delay: 5
           rollbackonhealthcheckfailed: true
-  push_tag:
-    runs-on: ubuntu-18.04
-    needs: [deploy]
-    steps:
       - name: Bump version and push tag
         uses: anothrNick/github-tag-action@3840ec22ac98e14d981375e3ae2d8d0392964521
         env:
