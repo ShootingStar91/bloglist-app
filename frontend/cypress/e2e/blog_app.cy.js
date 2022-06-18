@@ -54,12 +54,14 @@ describe('Blog app', function() {
     function clickBlog(containsText, times) {
       cy.contains(containsText).within(() => {
         cy.get('[data-cy=show-button]').click()
+        cy.wait(800)
+
         for (let i = 0; i < times; i++) {
           cy.get('[data-cy=like-button]').click()
           // Make cypress wait 500ms for like to refresh
           // Prevents flakiness of test but probably
           // more elegant solution exists
-          cy.wait(500)
+          cy.wait(900)
         }
       })      
     }

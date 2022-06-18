@@ -22,7 +22,7 @@
     "eslint": "eslint .",
     "lintfix": "eslint . --fix",
     "cypress:open": "cypress open --config watchForFileChanges=false",
-    "test:e2e": "cypress run --port 3002"
+    "test:e2e": "cypress run --port 3002 --browser chrome"
   },
   "eslintConfig": {
     "extends": [
@@ -46,7 +46,7 @@
   "devDependencies": {
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^12.0.0",
-    "cypress": "^8.7.0",
+    "cypress": "^10.1.0",
     "eslint-plugin-react-hooks": "^4.2.0"
   }
 }
