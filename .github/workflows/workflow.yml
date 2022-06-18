@@ -33,7 +33,7 @@ jobs:
           MONGODB_URI: ${{ secrets.MONGODB_URI }}
           SECRET: ${{ secrets.SECRET }}
           PORT: 3001
-        run: SKIP_PREFLIGHT_CHECK=true npm ci && npm start:test &
+        run: SKIP_PREFLIGHT_CHECK=true npm ci && npm run start:test &
       - name: e2e test
         uses: cypress-io/github-action@v2
         with:
