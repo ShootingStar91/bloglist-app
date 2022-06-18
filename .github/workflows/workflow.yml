@@ -8,6 +8,9 @@ on:
     branches: [master]
     types: [opened, synchronize] 
 
+env:
+  SKIP_PREFLIGHT_CHECK: true
+
 jobs:
   run_all_tests:
     timeout-minutes: 10
