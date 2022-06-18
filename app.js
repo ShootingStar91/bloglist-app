@@ -27,6 +27,13 @@ mongoose.connect(
 app.use(cors())
 app.use(express.static('frontend/build'))
 app.use(express.json())
+app.get('/health', (req, res) => {
+  res.send("NOTOK")
+})
+app.get('/version', (req, res) => {
+  res.send('2') //BROKEN VERSION
+})
+
 app.use(middleware.tokenExtractor)
 
 app.use(middleware.requestLogger)
@@ -34,12 +41,6 @@ app.use('/api/blogs', blogsRouter)
 app.use('/api/users', usersRouter)
 app.use('/api/login', loginRouter)
 app.use('/api/testing', testRouter)
-app.get('/health', (req, res) => {
-  res.send("ok")
-})
-app.get('/version', (req, res) => {
-  res.send('1')
-})
 app.use(middleware.unknownEndpoint)
 app.use(middleware.errorHandler)
 
